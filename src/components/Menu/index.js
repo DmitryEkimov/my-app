@@ -17,9 +17,9 @@ const Menu = ({isOpen})=> {
                 {
                     MENU.map(({title,to},index)=>(
                        <li key={index}>
-                          <a href={to}>
+                          <button href={to}>
                              {title}
-                          </a>
+                          </button>
                        </li>
                     ))
                 }
