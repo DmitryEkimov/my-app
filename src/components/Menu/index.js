@@ -7,9 +7,11 @@ const MENU = [
     {title:'ABOUT',to:"/about"},
     {title:'CONTACT',to:"/contact"}
 ]
+
 const Menu = ({isOpen})=> {
 
     return (
+        
         <div className={cn(s.menuContainer,{[s.active]:isOpen===true,[s.deactive]:isOpen===false})}>
             <div className={s.overlay} />
             <div>
@@ -17,9 +19,7 @@ const Menu = ({isOpen})=> {
                 {
                     MENU.map(({title,to},index)=>(
                        <li key={index}>
-                          <button href={to}>
-                             {title}
-                          </button>
+                           <a href={to}>{title}</a>
                        </li>
                     ))
                 }
