@@ -1,32 +1,28 @@
+import cn from 'classnames';
 import s from './style.module.css'
-const classNames = require('classnames');
-const Menu = ({isShowMenu})=> {
+
+const MENU = [
+    {title:'HOME',to:"/"},
+    {title:'GAME',to:"/game"},
+    {title:'ABOUT',to:"/about"},
+    {title:'CONTACT',to:"/contact"}
+]
+
+const Menu = ({isOpen})=> {
 
     return (
-        <div className={classNames(s.menuContainer,{[s.active]:isShowMenu},{[s.deactive]:!isShowMenu})}>
+        
+        <div className={cn(s.menuContainer,{[s.active]:isOpen===true,[s.deactive]:isOpen===false})}>
             <div className={s.overlay} />
-            <div className={s.menuItems}>
+            <div>
                 <ul>
-                <li>
-                    <a href="#welcome">
-                    HOME
-                    </a>
-                </li>
-                <li>
-                    <a href="#game">
-                    GAME
-                    </a>
-                </li>
-                <li>
-                    <a href="#about">
-                    ABOUT
-                    </a>
-                </li>
-                <li>
-                    <a href="#contact">
-                    CONTACT
-                    </a>
-                </li>
+                {
+                    MENU.map(({title,to},index)=>(
+                       <li key={index}>
+                           <a href={to}>{title}</a>
+                       </li>
+                    ))
+                }
                 </ul>
             </div>
         </div>

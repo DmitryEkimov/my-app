@@ -1,20 +1,19 @@
-import s from './style.module.css'
-import MenuHeader from '../../components/MenuHeader';
+import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header';
 import Layout from '../../components/Layout';
-import Footer from '../../components/Footer';
-import PokemonCard from '../../components/PokemonCard';
-import bg3 from '../../assets/bg3.jpg';
-import bg2 from '../../assets/bg2.jpg';
-import POKEMONS from '../../assets/pokemons.json'
 
-const HomePage = ({onChangePage})=> {
-    const handleClickButton = ()=> {
-        onChangePage && onChangePage('game');
-    }
+
+import bg3 from '../../assets/bg3.jpg';
+
+
+
+const HomePage = ()=> {
+    const history = useHistory();
+    const handleClickButton = ()=> (
+        history.push('/game')
+     )
     return (
     <>
-        <MenuHeader />
         <Header title='This is Pockemon Card Game' descr='Simple Triple Triad Card' onClickButton={handleClickButton}/>
         <Layout id="rules" title="Rules" urlBg={bg3} >
         <p>In the game two players face off against one another, one side playing as</p>
@@ -31,15 +30,6 @@ const HomePage = ({onChangePage})=> {
         <p>player's rank is higher, the opponent's card will be captured and changed into</p>
         <p>the player's color instead. </p>
         </Layout>
-        <Layout id="cards" title="Cards" colorTitle="#FEFEFE" colorBg="#202736">
-            <div className={s.flex}>
-                {
-                    POKEMONS.map(item=><PokemonCard name={item.name} img={item.img} id={item.id} type={item.type} key={item.id} values={item.values}  />)
-                }
-            </div>
-        </Layout>
-        <Layout id="about" title="About" urlBg={bg2} />
-        <Footer />
     </>
     );
   };
