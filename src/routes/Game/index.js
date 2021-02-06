@@ -7,12 +7,8 @@ const GamePage = ()=> {
     const [pokemonCards,setPokemonCards] = useState(POKEMONS);
     const setActive =(id)=>{
         setPokemonCards(prevState=>{
-            const pokemonCards = prevState.map(item=>{
-                if(item.id===id){
-                    item.active = (item.active===undefined)?true:!item.active;
-                }
-                return item;
-            });
+            const pokemonCards = prevState.map(item=>
+                (item.id===id ? { ...item, active: !item.active } : item));
             return pokemonCards; });
     }
     return (
