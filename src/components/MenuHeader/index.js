@@ -5,6 +5,7 @@ import NavBar from '../NavBar';
 const MenuHeader  = ({bgActive})=> {
     const [isOpen,setOpen] = useState(null);
     const handleClickHamburg = ()=>{
+        console.log(isOpen);
         setOpen(prevState=>!prevState);
     };
     return (
