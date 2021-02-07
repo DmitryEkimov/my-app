@@ -6,7 +6,7 @@ const PokemonCard = ({name,img,id,type,values,isActive,onClickCard})=> {
     const onClick =()=>{
         onClickCard && onClickCard(id);
     }
-    //console.log(values);
+
     return (
         <div className={s.root} onClick ={onClick} >
             <div className={cn(s.pokemonCard,{[s.active]:isActive})}>
