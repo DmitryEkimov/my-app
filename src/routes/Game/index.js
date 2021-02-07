@@ -1,9 +1,12 @@
 import {useState} from 'react';
+
 import Layout from '../../components/Layout';
 import PokemonCard from '../../components/PokemonCard';
 import s from './style.module.css'
 import POKEMONS from '../../assets/pokemons.json'
+
 const GamePage = ()=> {
+    
     const [pokemons,setPokemons] = useState(POKEMONS);
     const handleChangeActive =(id)=>{
         setPokemons(prevState=>{
