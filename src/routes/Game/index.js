@@ -3,7 +3,6 @@ import {useEffect,useState} from 'react';
 import Layout from '../../components/Layout';
 import PokemonCard from '../../components/PokemonCard';
 import s from './style.module.css'
-//import POKEMONS from '../../assets/pokemons.json'
 import database from '../../services/firebase';
 
 const GamePage = ()=> {
