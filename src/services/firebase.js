@@ -10,10 +10,10 @@ const firebaseConfig = {
     messagingSenderId: "195217319351",
     appId: "1:195217319351:web:bcb0b027388b72d2f2f432"
   };
+
+firebase.initializeApp(firebaseConfig);
 class Firebase {
    constructor(){
-    if(!firebase.apps.length)
-    { firebase.initializeApp(firebaseConfig); }
     this.fire = firebase;
     this.database = this.fire.database();
    }
@@ -22,6 +22,10 @@ class Firebase {
       this.database.ref('pokemons').on('value',(snapshot)=>{
              cb(snapshot.val());
       });
+   }
+
+   offPokemonsSoket = ()=>{
+    this.database.ref('pokemons').off();
    }
 
    getPokemonsOnce = async ()=>{

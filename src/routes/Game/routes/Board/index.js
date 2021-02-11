@@ -3,13 +3,12 @@ import s from './style.module.css';
 import PokemonCard from '../../../../components/PokemonCard';
 import {PokemonContext} from '../../../../context/pokemonContext';
 const BoardPage = () => {
-    const pokemonContext = useContext(PokemonContext);
-    console.log(pokemonContext.pokemon);
+    const { pokemons } = useContext(PokemonContext);
     return (
         <div className={s.root}>
 						<div className={s.playerOne}>
                         {
-                            pokemonContext.pokemon.map(({name,img,id,type,values,active})=>{
+                            Object.values(pokemons).map(({id,name,img,type,values})=>{
                             return <PokemonCard key={id} name={name} img={img} id={id} type={type} values={values} isActive minimize className={s.card} />
                             })
                         }

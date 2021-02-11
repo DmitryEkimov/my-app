@@ -47,3 +47,27 @@ a:hover,
 a:active {
     color: #f300b4;
 }
+
+button {
+  min-width: 16vw;
+  min-height: 2vw;
+  display: inline-block;
+  text-align: center;
+  border-width:2px;
+  border-color: #f300b4;
+  margin-bottom: 1vw;
+  justify-content: center;
+  background-color: #f300b4;
+  color: #ffffff;
+  
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: 200ms;
+}
+
+button:hover,
+button:active {
+  background-color: #ffffff;
+  color: #f300b4; 
+}
+
