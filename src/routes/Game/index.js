@@ -21,9 +21,23 @@ const GamePage = () => {
             [key]:pokemon
         }
     })};
+    const [player1FinishCards,setPlayer1FinishCards] = useState([]);
+    const handleSetPlayer1FinishCards=(cards)=>{
+        if((cards.length!==0&&player1FinishCards.length===0)||(cards.length===0&&player1FinishCards.length!==0)){
+           setPlayer1FinishCards(prevState => cards);
+        }
+    };
+    const [player2FinishCards,setPlayer2FinishCards] = useState([]);
+    const handleSetPlayer2FinishCards=(cards)=>{
+        if((cards.length!==0&&player2FinishCards.length===0)||(cards.length===0&&player2FinishCards.length!==0)){
+           setPlayer2FinishCards(prevState => cards);
+        }
+    };
     return (
         <PokemonContext.Provider value = {{ 
-            pokemons:selectedPokemons,onSelectedPokemons:handleSelectedPokemons  
+            pokemons:selectedPokemons,onSelectedPokemons:handleSelectedPokemons,
+            player1FinishCards,onSetPlayer1FinishCards:handleSetPlayer1FinishCards, 
+            player2FinishCards,onSetPlayer2FinishCards:handleSetPlayer2FinishCards 
         }}>
         <Switch>
             <Route path={`${match.path}/`} exact component={StartPage} />

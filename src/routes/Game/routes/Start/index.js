@@ -20,6 +20,8 @@ const StartPage = ()=> {
     },[]);
 
     const pokemonContext = useContext(PokemonContext);
+    pokemonContext.onSetPlayer1FinishCards([]);
+    pokemonContext.onSetPlayer2FinishCards([]);
     const handleChangeSelected =(key)=>{
         const pokemon = {...pokemons[key]};
         pokemonContext.onSelectedPokemons(key,pokemon);
